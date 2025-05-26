@@ -5,7 +5,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 type Props = {
-  // Optional: allows injecting a router in tests
   RouterWrapper?: React.ComponentType<{ children: React.ReactNode }>;
 };
 
