@@ -1,4 +1,3 @@
-// src/test/Wizard.test.tsx
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Wizard from '../pages/Wizard';
