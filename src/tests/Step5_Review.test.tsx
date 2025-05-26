@@ -11,24 +11,24 @@ vi.mock('react-toastify', () => ({
   }
 }));
 
-test('requires checkbox to finalize', async () => {
+test('requires checkbox to submit', async () => {
   render(
     <FormProvider>
       <Step5 onBack={vi.fn()} />
     </FormProvider>
   );
 
-  const finalizeButton = screen.getByRole('button', { name: /finalize/i });
-  expect(finalizeButton).toBeDisabled();
+  const submitButton = screen.getByRole('button', { name: /submit/i });
+  expect(submitButton).toBeDisabled();
 
   // Enable the button by checking the checkbox
   fireEvent.click(screen.getByLabelText(/i confirm/i));
-  expect(finalizeButton).not.toBeDisabled();
+  expect(submitButton).not.toBeDisabled();
 
   // Click the button and verify success message
-  fireEvent.click(finalizeButton);
+  fireEvent.click(submitButton);
   
   await waitFor(() => {
-    expect(toast.success).toHaveBeenCalledWith('🎉 Application finalized!');
+    expect(toast.success).toHaveBeenCalledWith('🎉 Application Submitted!');
   });
 });

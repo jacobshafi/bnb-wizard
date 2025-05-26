@@ -63,9 +63,9 @@ test('user can complete the wizard end-to-end', async () => {
   // Step 5
   await screen.findByRole('heading', { name: /step 5/i });
   fireEvent.click(screen.getByLabelText(/i confirm/i));
-  fireEvent.click(screen.getByRole('button', { name: /finalize/i }));
+  fireEvent.click(screen.getByRole('button', { name: /submit/i }));
 
   await waitFor(() => {
-    expect(toast.success).toHaveBeenCalledWith('🎉 Application finalized!');
+    expect(toast.success).toHaveBeenCalledWith('🎉 Application Submitted!');
   });
 });

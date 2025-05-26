@@ -17,7 +17,7 @@ export default function Step5_Review({ onBack }: Props) {
     }
 
     // Normally you'd send data to a server here
-    toast.success('🎉 Application finalized!');
+    toast.success('🎉 Application Submitted!');
     localStorage.clear(); // optionally clear wizard progress
   };
 
@@ -38,7 +38,7 @@ export default function Step5_Review({ onBack }: Props) {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-gray-900">Step 5: Review & Finalize</h2>
+      <h2 className="text-2xl font-bold text-gray-900">Step 5: Review & Submit</h2>
 
       <div className="space-y-4 bg-gray-100 p-4 rounded-lg shadow-sm divide-y">
         {fields.map((f, idx) => (
@@ -64,7 +64,7 @@ export default function Step5_Review({ onBack }: Props) {
           disabled={!confirmed}
           className={`btn-primary ${!confirmed ? 'opacity-50 cursor-not-allowed' : ''}`}
         >
-          Finalize
+          Submit
         </button>
       </div>
     </div>
