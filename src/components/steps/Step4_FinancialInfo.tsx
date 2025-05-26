@@ -74,6 +74,15 @@ export default function Step4_FinancialInfo({ onNext, onBack }: Props) {
       return;
     }
 
+    const changed =
+      data.salary !== formData.salary ||
+      (showIncome ? data.additionalIncome !== formData.additionalIncome : !!data.additionalIncome) ||
+      (showMortgage ? data.mortgage !== formData.mortgage : !!data.mortgage) ||
+      (showCredits ? data.otherCredits !== formData.otherCredits : !!data.otherCredits) ||
+      data.showAdditionalIncome !== showIncome ||
+      data.showMortgage !== showMortgage ||
+      data.showOtherCredits !== showCredits;
+
     setData({
       salary: formData.salary,
       ...(showIncome && { additionalIncome: formData.additionalIncome }),
@@ -84,7 +93,9 @@ export default function Step4_FinancialInfo({ onNext, onBack }: Props) {
       showOtherCredits: showCredits,
     });
 
-    toast.success('Financial info saved');
+    if (changed) {
+      toast.success('Financial info saved');
+    }
     onNext();
   };
 

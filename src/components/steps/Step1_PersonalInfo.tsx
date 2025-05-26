@@ -38,8 +38,14 @@ export default function Step1_PersonalInfo({ onNext }: Props) {
   if (!loaded) return <div className="text-center p-10">Loading...</div>;
 
   const onSubmit = (formData: Inputs) => {
+    const changed =
+      data.firstName !== formData.firstName ||
+      data.lastName !== formData.lastName ||
+      data.dateOfBirth !== formData.dateOfBirth;
     setData(formData);
-    toast.success('Personal info saved');
+    if (changed) {
+      toast.success('Personal info saved');
+    }
     onNext();
   };
 

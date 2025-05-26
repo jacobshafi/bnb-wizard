@@ -57,8 +57,15 @@ export default function Step3_LoanRequest({ onNext, onBack }: Props) {
       return;
     }
 
+    const changed =
+      data.loanAmount !== formData.loanAmount ||
+      data.upfrontPayment !== formData.upfrontPayment ||
+      data.terms !== formData.terms;
+
     setData(formData);
-    toast.success('Loan request saved');
+    if (changed) {
+      toast.success('Loan request saved');
+    }
     onNext();
   };
 

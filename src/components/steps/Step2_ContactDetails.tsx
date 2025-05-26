@@ -35,10 +35,16 @@ export default function Step2_ContactDetails({ onNext, onBack }: Props) {
   if (!loaded) return <div className="text-center p-10">Loading...</div>;
 
   const onSubmit = (formData: Inputs) => {
+    const changed =
+      data.email !== formData.email ||
+      data.phone !== formData.phone;
     setData(formData);
-    toast.success('Contact info saved');
+    if (changed) {
+      toast.success('Contact info saved');
+    }
     onNext();
   };
+
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
