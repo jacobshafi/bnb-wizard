@@ -1,4 +1,3 @@
-// src/tests/Step2_ContactDetails.test.tsx
 import { render, screen, fireEvent } from '@testing-library/react';
 import Step2_ContactDetails from '../components/steps/Step2_ContactDetails';
 import { FormProvider } from '../context/FormContext';
